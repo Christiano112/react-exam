@@ -2,22 +2,20 @@ import { NavLink } from "react-router-dom";
 
 const Layout = () => {
     return (
-        <div>
-            <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", paddingTop: "3rem" }}>
+        <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", paddingTop: "1rem" }}>
 
-                <NavLink style={({ isActive }) => {
-                    return {
-                        color: isActive ? "red" : "blue",
-                    };
-                }} to="/">HOME</NavLink>
+            <NavLink style={({ isActive }) => {
+                return {
+                    color: isActive ? "red" : "blue",
+                };
+            }} to="/">HOME</NavLink>
 
-                <NavLink style={({ isActive }) => {
-                    return {
-                        color: isActive ? "red" : "blue",
-                    };
-                }} to="/counter">Counter</NavLink>
-            </nav>
-        </div>
+            <NavLink style={({ isActive }) => {
+                return {
+                    color: isActive ? "red" : "blue",
+                };
+            }} to="/counter">Counter</NavLink>
+        </nav>
     )
 }
 
