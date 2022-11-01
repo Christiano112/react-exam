@@ -1,32 +1,33 @@
-import { useState, useReducer } from "react";
-import React from 'react';
+import { useReducer } from "react";
+import { useState } from "react";
 import myReducer from "./Reducer";
-import { NavLink } from 'react-router-dom';
 import altSchool from "../images/AItSchool-Image-1024x671.webp";
 import setemi from "../images/setemi.jpeg"
+import Layout from './Layout';
 
 
 
 const Counter = () => {
-    const [count, setCount] = useState(0);
-    const [myCount, dispatch] = useReducer(myReducer, 0)
+    // const [count, setCount] = useState(0);
+    const [myCount, dispatch] = useReducer(myReducer, 0);
+    const [option, setOption] = useState(false)
 
     //USE STATE FUNCTIONS
-    const handleDecrease = () => {
-        setCount((count) => count - 1)
-    }
+    // const handleDecrease = () => {
+    //     setCount((count) => count - 1)
+    // }
 
-    const handleIncrease = () => {
-        setCount((count) => count + 1)
-    }
+    // const handleIncrease = () => {
+    //     setCount((count) => count + 1)
+    // }
 
-    const handleReset = () => {
-        setCount(0)
-    }
+    // const handleReset = () => {
+    //     setCount(0)
+    // }
 
-    const handleSetValue = (e) => {
-        setCount(e.target.value)
-    }
+    // const handleSetValue = (e) => {
+    //     setCount(e.target.value)
+    // }
 
     // USE REDUCER FUNCTIONS
     const handleMyDecrease = () => {
@@ -57,7 +58,10 @@ const Counter = () => {
 
     return (
         <article style={{ width: "40rem", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3rem" }}>
-            <section>
+            <Layout />
+
+            {/* USE STATE FOR COUNTER */}
+            {/* <section>
                 <h1>{count}</h1>
 
                 <button
@@ -71,11 +75,11 @@ const Counter = () => {
                     step="0.1"
                     value={count}
                     onChange={(e) => handleSetValue(e)} />
-            </section>
+            </section> */}
 
-            <section>
-                <h1>{myCount}</h1>
-
+            {/* USE REDUCER FOR COUNTER */}
+            <h1>{myCount}</h1>
+            <section className="counter">
                 <button
                     onClick={() => handleMyIncrease()}>INCREMENT</button>
                 <button
@@ -83,21 +87,37 @@ const Counter = () => {
                 <button
                     onClick={() => handleMyDecrease()}>DECREMENT</button>
 
-                <input type="number"
-                    step="0.1"
-                    value={myCount}
-                    onChange={(e) => handleMySetValue(e)} />
+                <label>{'Input a Number to Set Counter'}
+                    <input type="number"
+                        value={myCount}
+                        onChange={(e) => handleMySetValue(e)} />
+                </label>
             </section>
 
-            <section>
-                <img src={setemi} alt="setemi" style={{opacity: count}} />
-                <img src={altSchool} alt="altschool" style={{ opacity: myCount }} />
-            </section>
+            <section className="counter-display">
+                <h2>Would you like to see the demonstration of the Counter on CSS Border Radius or CSS Image Width</h2>
 
-            <NavLink to="/">Take me Home</NavLink>
-            <NavLink to="/counter">Take me to counter page</NavLink>
+                <div className="counter-display-btns">
+                    <button onClick={() => setOption(true)}>CSS Border Radius</button>
+                    <button onClick={() => setOption(false)}>CSS Font Size / Image Width</button>
+                </div>
+
+                {option ? (
+                    <>
+                        <img src={setemi} alt="setemi" style={{ width: "20rem", borderRadius: myCount + "rem" }} />
+                    </>
+                ) : (
+                    <>
+                        {myCount <= 10 ? (
+                            <p style={myCount <= 5 ? { fontSize: "10px", color: "red" } : { fontSize: myCount + "px", color: "red" }}>Lets Become World Class Together</p>
+                        ) : (
+                            <img src={altSchool} alt="altschool" style={{ width: myCount + "rem" }} />
+                        )}
+                    </>
+                )}
+            </section>
         </article>
     )
 }
 
-export default Counter
+export default Counter;
