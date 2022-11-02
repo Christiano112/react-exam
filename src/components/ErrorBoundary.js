@@ -3,6 +3,7 @@ import Counter from "./Counter";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from './Home';
 import ErrorPage from './ErrorPage';
+import Layout from "./Layout";
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -26,6 +27,8 @@ const MyErrorBoundary = () => {
                 FallbackComponent={ErrorFallback}
                 onReset={() => { navigate("/") }}
             >
+                <Layout />
+
                 <Routes>
                     <Route path="/" index element={<Home />} />
                     <Route path="/counter" index element={<Counter />} />
