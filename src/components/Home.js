@@ -39,7 +39,7 @@ const Home = () => {
             <article className='home-list'>
                 <ul>
                     {observation.map(data => (
-                        <li key={data.id} style={{ background: "#ee" + Math.random(10)*10 + "ee" }}>
+                        <li key={data.id}>
                             <div className="home-list-data">
                                 {data.observe}{' '}
                             </div>
@@ -49,7 +49,7 @@ const Home = () => {
                             <button onClick={() => {
                                 setObservation(observation.filter(ob => ob.id !== data.id))
                             }}
-                            className="delete-btn">
+                                className="delete-btn">
                                 Delete
                             </button>
                         </li>
@@ -60,7 +60,7 @@ const Home = () => {
             <div className="new-home">
                 <h2>Add New Observations</h2>
                 <input
-                placeholder='Name of Observation'
+                    placeholder='Name of Observation'
                     value={text}
                     onChange={e => setText(e.target.value)} />
                 <button onClick={handleAdd}>

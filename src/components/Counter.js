@@ -80,7 +80,7 @@ const Counter = () => {
                                 </>
                             ) : (
                                 <>
-                                    <img src={altSchool} alt="altschool" style={myCount <= 5 ? {width: "5rem"} :{ width: myCount + "rem" }} />
+                                    <img src={altSchool} alt="altschool" style={myCount <= 5 ? { width: "5rem" } : { width: myCount + "rem" }} />
                                 </>
                             )}
                         </>
