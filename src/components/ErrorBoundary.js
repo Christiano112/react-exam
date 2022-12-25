@@ -8,7 +8,7 @@ import Layout from "./Layout";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
     return (
-        <div role="alert" style={{ width: "75%", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "2rem" }}
+        <div role="alert" style={{ width: "80%", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "2rem" }}
         className="container">
             <h1>Something went wrong:</h1>
             <h2 style={{ color: "red" }} className="fs-4">{error.message}</h2>

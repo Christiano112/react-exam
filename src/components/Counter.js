@@ -33,7 +33,6 @@ const Counter = () => {
     return (
         <article style={{ width: "75%", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3rem" }}
             className="container">
-
             <aside className="counter">
                 <div className="counter-main">
                     <button

@@ -26,6 +26,11 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+h1,
+h2 {
+  text-align: center;
+}
+
 .counter {
   background: linear-gradient(
     -45deg,
@@ -161,11 +166,10 @@ input::-webkit-inner-spin-button {
   box-shadow: inset 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
 }
 
+/* HOME COMPONENT */
 .home {
-  display: grid;
-  place-items: center;
-  margin-top: 2rem;
   text-align: center;
+  margin-top: 3rem;
 }
 
 .home h1 {
@@ -178,15 +182,9 @@ input::-webkit-inner-spin-button {
   font-weight: 500;
 }
 
-.home-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .home-list ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   align-items: center;
   justify-content: center;
   gap: 0rem 3rem;
@@ -348,9 +346,10 @@ input::-webkit-inner-spin-button {
     padding: 1rem;
   }
 
-  .counter button {
+  .counter,
+  .home .custom-set button {
     padding: 0.25rem 0.5rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .counter label {
@@ -371,7 +370,6 @@ input::-webkit-inner-spin-button {
   }
 
   .counter-display h2 {
-    text-align: center;
     font-size: 1.2rem;
   }
 
@@ -387,6 +385,64 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 450px) {
+  .home-list ul {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0rem 1.5rem;
+  }
+
+  .home-list ul li {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .home .custom-main {
+    margin: 0.5rem 0;
+  }
+
+  .home .custom-main h1 {
+    padding: 0 0.5rem;
+  }
+
+  .home .custom-main button {
+    font-size: 1rem;
+    font-weight: 600;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .home .custom-set {
+    gap: 1rem;
+  }
+
+  .home .custom-set button {
+    padding: 0.25rem 0.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .home .custom-set input {
+    padding: 0.25rem 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .home .home-list .delete-btn {
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .home .new-home input {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0;
+  }
+
+  .home .new-home button {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  /* END OF HOME COMPONENT */
+
+  /* START OF COUNTER COMPONENT */
   .counter {
     padding: 1rem;
   }
@@ -402,14 +458,16 @@ input::-webkit-inner-spin-button {
   }
 
   .counter-main .show-counter p {
-    padding: .8rem;
+    padding: 0.8rem;
   }
 
   .counter button {
-    padding: 0.25rem 0.3rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .counter-set {
     gap: 1rem;
   }
 }
+
+/* END OF MEDIA QUERIES */

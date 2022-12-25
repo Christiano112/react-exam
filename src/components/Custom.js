@@ -33,11 +33,11 @@ const MyCustomHook = () => {
         <>
             <div className='custom-main'>
                 <button
-                    disabled={myCount.length > 4 || myCount > 100}
+                    disabled={myCount > 1000}
                     onClick={() => handleMyIncrease()}>+</button>
                 <h1>{myCount}</h1>
                 <button
-                    disabled={myCount.length > 4 || myCount > 100}
+                    disabled={myCount > 1000}
                     onClick={() => handleMyDecrease()}>-</button >
             </div>
             <div className='custom-set'>
@@ -45,7 +45,7 @@ const MyCustomHook = () => {
                 <label>{"Input Number of Observation"}
                     <input type="number"
                         value={myCount}
-                        disabled={myCount.length > 3 || myCount > 99}
+                        disabled={myCount.length > 3 || myCount >= 998}
                         onChange={(e) => handleMySetValue(e)} />
                 </label>
             </div>
