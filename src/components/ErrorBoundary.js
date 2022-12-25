@@ -8,11 +8,12 @@ import Layout from "./Layout";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
     return (
-        <div role="alert" style={{ width: "40rem", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3rem" }}>
+        <div role="alert" style={{ width: "75%", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "2rem" }}
+        className="container">
             <h1>Something went wrong:</h1>
-            <h2 style={{ color: "red" }}>{error.message}</h2>
+            <h2 style={{ color: "red" }} className="fs-4">{error.message}</h2>
             <button onClick={resetErrorBoundary}
-                style={{ background: "#27ae60", color: "#fff", padding: ".5rem 1rem" }}>Take Me Home</button>
+                style={{ background: "#27ae60", color: "#fff", padding: ".5rem 1rem", border: "none" }}>Take Me Home</button>
         </div>
     )
 }

@@ -8,18 +8,18 @@ import setemi from "../images/setemi.jpeg"
 
 const Counter = () => {
     const [myCount, dispatch] = useReducer(myReducer, 0);
-    const [option, setOption] = useState(false)
-    const [show, setShow] = useState(false)
-
-    const handleMyDecrease = () => {
-        dispatch({
-            type: "minus"
-        })
-    }
+    const [option, setOption] = useState(false);
+    const [show, setShow] = useState(false);
 
     const handleMyIncrease = () => {
         dispatch({
             type: "add"
+        })
+    }
+
+    const handleMyDecrease = () => {
+        dispatch({
+            type: "minus"
         })
     }
 
@@ -38,7 +38,8 @@ const Counter = () => {
 
 
     return (
-        <article style={{ width: "40rem", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3rem" }}>
+        <article style={{ width: "75%", margin: "3rem auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3rem" }}
+            className="container">
 
             <aside className="counter">
                 <div className="counter-main">
@@ -76,11 +77,11 @@ const Counter = () => {
                         <>
                             {option ? (
                                 <>
-                                    <img src={setemi} alt="setemi" style={{ width: "20rem", borderRadius: myCount + "rem" }} />
+                                    <img src={setemi} alt="setemi" style={{ width: "20rem", borderRadius: myCount + "rem" }} className="img-fluid" />
                                 </>
                             ) : (
                                 <>
-                                    <img src={altSchool} alt="altschool" style={myCount <= 5 ? { width: "5rem" } : { width: myCount + "rem" }} />
+                                    <img src={altSchool} alt="altschool" style={myCount <= 5 ? { width: "5rem" } : { width: myCount + "rem" }} className="img-fluid" />
                                 </>
                             )}
                         </>

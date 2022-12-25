@@ -323,3 +323,93 @@ input::-webkit-inner-spin-button {
   box-shadow: inset 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.5);
   margin-top: 1.5rem;
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+  .counter {
+    padding: 1.5rem;
+  }
+
+  .counter-main {
+    gap: 1rem;
+  }
+
+  .counter-main .show-counter {
+    padding: 1.5rem 2.5rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    max-width: 15rem;
+    min-width: 7rem;
+    min-height: 7rem;
+    max-height: 15rem;
+  }
+
+  .counter-main .show-counter p {
+    padding: 1rem;
+  }
+
+  .counter button {
+    padding: 0.25rem 0.5rem;
+    font-size: .8rem;
+  }
+
+  .counter label {
+    font-size: 0.7rem;
+  }
+
+  .counter input {
+    margin-top: 1rem;
+  }
+
+  .counter-set {
+    margin: 2rem 0 1rem 0;
+    gap: 2rem;
+  }
+
+  .counter-display {
+    gap: 1.5rem;
+  }
+
+  .counter-display h2 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .counter-display-btns {
+    flex-direction: column;
+  }
+
+  .counter-display-btns button {
+    padding: 0.25rem 0.8rem;
+    border-radius: 0.8rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 450px) {
+  .counter {
+    padding: 1rem;
+  }
+
+  .counter-main .show-counter {
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    max-width: 7rem;
+    min-width: 5rem;
+    min-height: 5rem;
+    max-height: 7rem;
+  }
+
+  .counter-main .show-counter p {
+    padding: .8rem;
+  }
+
+  .counter button {
+    padding: 0.25rem 0.3rem;
+  }
+
+  .counter-set {
+    gap: 1rem;
+  }
+}

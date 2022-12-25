@@ -33,39 +33,41 @@ const Home = () => {
     }
 
     return (
-        <section className='home'>
-            <h1>My LIst of Observations</h1>
+        <section className='home container'>
+            <div className='row'>
+                <h1>My LIst of Observations</h1>
 
-            <article className='home-list'>
-                <ul>
-                    {observation.map(data => (
-                        <li key={data.id}>
-                            <div className="home-list-data">
-                                {data.observe}{' '}
-                            </div>
+                <article className='home-list col'>
+                    <ul>
+                        {observation.map(data => (
+                            <li key={data.id}>
+                                <div className="home-list-data">
+                                    {data.observe}{' '}
+                                </div>
 
-                            <MyCustomHook />
+                                <MyCustomHook />
 
-                            <button onClick={() => {
-                                setObservation(observation.filter(ob => ob.id !== data.id))
-                            }}
-                                className="delete-btn">
-                                Delete
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </article>
+                                <button onClick={() => {
+                                    setObservation(observation.filter(ob => ob.id !== data.id))
+                                }}
+                                    className="delete-btn">
+                                    Delete
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </article>
 
-            <div className="new-home">
-                <h2>Add New Observations</h2>
-                <input
-                    placeholder='Name of Observation'
-                    value={text}
-                    onChange={e => setText(e.target.value)} />
-                <button onClick={handleAdd}>
-                    Add
-                </button>
+                <div className="new-home col">
+                    <h2>Add New Observations</h2>
+                    <input
+                        placeholder='Name of Observation'
+                        value={text}
+                        onChange={e => setText(e.target.value)} />
+                    <button onClick={handleAdd}>
+                        Add
+                    </button>
+                </div>
             </div>
         </section>
     )

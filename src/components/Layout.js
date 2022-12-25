@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const Layout = () => {
     return (
-        <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", paddingTop: "1rem" }}>
+        <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", paddingTop: "1rem" }}
+        className="container">
 
             <NavLink style={({ isActive }) => {
                 return {
