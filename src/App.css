@@ -329,6 +329,10 @@ h2 {
 
 /* MEDIA QUERIES */
 @media (max-width: 600px) {
+  .home .custom-set input {
+    max-width: 8rem;
+  }
+
   .counter {
     padding: 1.5rem;
   }
@@ -429,7 +433,7 @@ h2 {
 
   .home .custom-set button {
     padding: 0.25rem 0.5rem;
-    margin-top: 2.5rem;
+    margin-top: 1.8rem;
   }
 
   .home .custom-set input {
@@ -483,4 +487,9 @@ h2 {
   }
 }
 
+@media (max-width: 315px) {
+  .home .custom-set button {
+    margin-top: 2.5rem;
+  }
+}
 /* END OF MEDIA QUERIES */
