@@ -7,7 +7,7 @@ export default function myReducer(myCount, action) {
             return myCount - 1;
         }
         case "set": {
-            return action.valued.target.value
+            return Number(action.valued.target.value)
         }
         case "reset": {
             return 0;

@@ -1,39 +1,32 @@
-import { useReducer } from "react";
 import { useState } from "react";
-import myReducer from "./Reducer";
 import altSchool from "../images/AItSchool-Image-1024x671.webp";
 import setemi from "../images/setemi.jpeg"
 
 
 
 const Counter = () => {
-    const [myCount, dispatch] = useReducer(myReducer, 0);
+    const [myCount, setCount] = useState(0);
     const [option, setOption] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleMyIncrease = () => {
-        dispatch({
-            type: "add"
-        })
+        setCount(myCount + 1)
     }
 
     const handleMyDecrease = () => {
-        dispatch({
-            type: "minus"
-        })
+        setCount(myCount - 1)
     }
 
     const handleMySetValue = (e) => {
-        dispatch({
-            type: "set",
-            valued: e
-        })
+        if (e.target.value >= 0) {
+            setCount(Number(e.target.value))
+        } else {
+            setCount(e.target.value)
+        }
     }
 
     const handleMyReset = () => {
-        dispatch({
-            type: "reset"
-        })
+        setCount(0)
     }
 
 
@@ -44,10 +37,12 @@ const Counter = () => {
             <aside className="counter">
                 <div className="counter-main">
                     <button
+                        disabled={myCount.length > 4 || myCount > 100}
                         onClick={() => handleMyIncrease()}
                         style={{ fontSize: "1.3rem", borderRadius: "50%", fontWeight: "700", height: "2.5rem", width: "2.5rem", padding: "0" }}>+</button>
                     <div className="show-counter"><p>{myCount}</p></div>
                     <button
+                        disabled={myCount.length > 4 || myCount > 100}
                         onClick={() => handleMyDecrease()}
                         style={{ fontSize: "1.5rem", borderRadius: "50%", fontWeight: "900", height: "2.5rem", width: "2.5rem", padding: "0" }}>-</button>
                 </div>
@@ -58,6 +53,7 @@ const Counter = () => {
                     <label>{'Input a Number to Set Counter'}
                         <input type="number"
                             value={myCount}
+                            disabled={myCount.length > 3 || myCount > 99}
                             onChange={(e) => handleMySetValue(e)} />
                     </label>
                 </div>
@@ -65,7 +61,7 @@ const Counter = () => {
 
             <section className="counter-display">
                 <h2>Would you like to see the demonstration of the Counter on CSS Border Radius or CSS Image Width</h2>
-                <p style={{ fontSize: "10px", color: "red" }}>Use the Counters Up for Controls</p>
+                <p style={{ fontSize: "10px", color: "red" }}>Use the Counters Up for Controls (numbers valid up till 100)</p>
 
                 <div className="counter-display-btns">
                     <button onClick={() => { setOption(true); setShow(true) }}>CSS Border Radius</button>
