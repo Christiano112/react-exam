@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyCustomHook from './Custom';
 
 
@@ -21,6 +21,16 @@ const Home = () => {
     const [observation, setObservation] = useState(myObservations);
     const [text, setText] = useState("");
 
+    useEffect(() => {
+        const aobservation = JSON.parse(localStorage.getItem("data"));
+
+        if (aobservation) {
+            setObservation([...aobservation]);
+        }
+        console.log(aobservation);
+
+    }, []);
+
     const handleAdd = () => {
         setObservation([
             ...observation,
@@ -29,7 +39,20 @@ const Home = () => {
                 observe: text
             }
         ]);
-        setText("")
+        setText("");
+
+        localStorage.setItem("data", JSON.stringify([
+            ...observation,
+            {
+                id: nextId++,
+                observe: text
+            }
+        ]));
+    }
+
+    const handleDelete = () => {
+        localStorage.removeItem("data");
+        // localStorage.clear()
     }
 
     return (
@@ -47,7 +70,8 @@ const Home = () => {
                             <MyCustomHook />
 
                             <button onClick={() => {
-                                setObservation(observation.filter(ob => ob.id !== data.id))
+                                setObservation(observation.filter(ob => ob.id !== data.id));
+                                handleDelete()
                             }}
                                 className="delete-btn">
                                 Delete
