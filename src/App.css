@@ -329,10 +329,6 @@ h2 {
 
 /* MEDIA QUERIES */
 @media (max-width: 600px) {
-  .home .custom-set input {
-    max-width: 8rem;
-  }
-
   .counter {
     padding: 1.5rem;
   }
