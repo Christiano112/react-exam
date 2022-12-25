@@ -170,6 +170,7 @@ h2 {
 .home {
   text-align: center;
   margin-top: 3rem;
+  padding-left: 0 !important;
 }
 
 .home h1 {
@@ -180,6 +181,10 @@ h2 {
 .home .home-list-data {
   font-size: 2rem;
   font-weight: 500;
+}
+
+.home-list {
+  padding-left: 0 !important;
 }
 
 .home-list ul {
@@ -306,7 +311,7 @@ h2 {
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .home .new-home button {
@@ -385,6 +390,14 @@ h2 {
 }
 
 @media (max-width: 450px) {
+  .home {
+    margin-top: 2rem;
+  }
+
+  .home-list {
+    margin-left: -1rem !important;
+  }
+
   .home-list ul {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 0rem 1.5rem;
@@ -432,7 +445,7 @@ h2 {
 
   .home .new-home input {
     padding: 0.4rem 0.8rem;
-    margin-right: 0;
+    margin-right: 1rem;
   }
 
   .home .new-home button {
