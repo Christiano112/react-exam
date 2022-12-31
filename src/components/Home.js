@@ -14,46 +14,57 @@ const myObservations = [
     }
 ]
 
-let nextId = 2;
-
 
 const Home = () => {
     const [observation, setObservation] = useState(myObservations);
     const [text, setText] = useState("");
+    const [nextId, setNextId] = useState(2);
+
 
     useEffect(() => {
-        const aobservation = JSON.parse(localStorage.getItem("data"));
+        const myObservation = JSON.parse(localStorage.getItem("data"));
 
-        if (aobservation) {
-            setObservation([...aobservation]);
+        if (myObservation) {
+            setObservation([...myObservation]);
         }
-        console.log(aobservation);
+
+        console.log(myObservation);
 
     }, []);
+
+    useEffect(() => {
+        const myId = JSON.parse(localStorage.getItem("nextId"));
+
+        if (myId) {
+            setNextId(myId);
+        }
+
+    }, [])
+
 
     const handleAdd = () => {
         setObservation([
             ...observation,
             {
-                id: nextId++,
+                id: nextId,
                 observe: text
             }
         ]);
+
         setText("");
 
         localStorage.setItem("data", JSON.stringify([
             ...observation,
             {
-                id: nextId++,
+                id: nextId,
                 observe: text
             }
         ]));
+
+        setNextId(nextId + 1);
+        localStorage.setItem("nextId", JSON.stringify(nextId + 1));
     }
 
-    const handleDelete = () => {
-        localStorage.removeItem("data");
-        // localStorage.clear()
-    }
 
     return (
         <section className='home container'>
@@ -62,16 +73,17 @@ const Home = () => {
             <article className='home-list'>
                 <ul>
                     {observation.map(data => (
-                        <li key={data.id}>
+                        <li key={Number(data.id)}>
                             <div className="home-list-data fs-4">
                                 {data.observe}{' '}
                             </div>
 
-                            <MyCustomHook />
+                            <MyCustomHook countKey={Number(data.id)} />
 
                             <button onClick={() => {
                                 setObservation(observation.filter(ob => ob.id !== data.id));
-                                handleDelete()
+                                localStorage.setItem("data", JSON.stringify(observation.filter(ob => ob.id !== data.id)));
+                                localStorage.removeItem(`counter-${Number(data.id)}`);
                             }}
                                 className="delete-btn">
                                 Delete

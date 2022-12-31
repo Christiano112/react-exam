@@ -1,7 +1,9 @@
 // Description: These hooks are imported from React
 import { useState, useEffect } from "react";
+
 // Description: This Pic is used for the CSS Image Width Demonstration
 import altSchool from "../images/AItSchool-Image-1024x671.webp";
+
 // Description: This Pic is used for the CSS Border Radius Demonstration
 import setemi from "../images/setemi.jpeg"
 
@@ -10,8 +12,10 @@ import setemi from "../images/setemi.jpeg"
 const Counter = () => {
     // Description: This is the useState Hook for saving and setting the Counter Value
     const [myCount, setCount] = useState(0);
+
     // Description: This is the useState Hook for saving and setting the Option Value
     const [option, setOption] = useState(false);
+
     // Description: This is the useState Hook for saving and setting the Show Value
     const [show, setShow] = useState(false);
 
